@@ -1,0 +1,125 @@
+root - DEBUG - cleos push action eosio.token create '["eosio","20000000000000.0000 EOS"]' -p eosio.token@active
+root - DEBUG - cleos push action eosio.token issue '["eosio", "20000000000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action fake.token create '["fakeosio","200000000000000.0000 EOS"]' -p fake.token@active
+root - DEBUG - cleos push action fake.token issue '["fakeosio", "20000000000000.0000 EOS",""]' -p fakeosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","fakeosio","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","testeosfrom","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","bob","1000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","pokpokpokpok","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action atkforg regist '["gfairdicegam"]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","gfairdicegam","1000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action gfairdicegam receipt '{"bet": {}}' -p gfairdicegam@active
+root - DEBUG - cleos push action gfairdicegam reveal '{"id": 254, "seed": "0000000000000000000000000000000000000000000000000000000000000000"}' -p gfairdicegam@active
+root - DEBUG - cleos push action eosio.token transfer '{"from":"bob", "to":"gfairdicegam", "quantity":"92.1414 EOS", "memo":"rpsVeMHU"}' -p bob@active
+root - DEBUG - cleos push action gfairdicegam transfer '{"from": "gfairdicegam", "to": "gfairdicegam", "quantity": "93.2339 EOS", "memo": "uZwj"}' -p gfairdicegam@active
+root - DEBUG - cleos push action eosio.token create '["eosio","20000000000000.0000 EOS"]' -p eosio.token@active
+root - DEBUG - cleos push action eosio.token issue '["eosio", "20000000000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action fake.token create '["fakeosio","200000000000000.0000 EOS"]' -p fake.token@active
+root - DEBUG - cleos push action fake.token issue '["fakeosio", "20000000000000.0000 EOS",""]' -p fakeosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","fakeosio","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","testeosfrom","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","bob","1000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","pokpokpokpok","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action atkforg regist '["gfairdicegam"]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","gfairdicegam","1000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '{"from": "bob", "to": "bob", "quantity": "93.2339 EOS", "memo": "uZwj"}' -p bob@active
+root - DEBUG - cleos push action eosio.token create '["eosio","20000000000000.0000 EOS"]' -p eosio.token@active
+root - DEBUG - cleos push action eosio.token issue '["eosio", "20000000000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action fake.token create '["fakeosio","200000000000000.0000 EOS"]' -p fake.token@active
+root - DEBUG - cleos push action fake.token issue '["fakeosio", "20000000000000.0000 EOS",""]' -p fakeosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","fakeosio","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","testeosfrom","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","bob","1000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","pokpokpokpok","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action atkforg regist '["gfairdicegam"]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","gfairdicegam","1000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action gfairdicegam receipt '{"bet": {}}' -p gfairdicegam@active
+root - DEBUG - cleos push action gfairdicegam reveal '{"id": 205, "seed": "0000000000000000000000000000000000000000000000000000000000000000"}' -p gfairdicegam@active
+root - DEBUG - cleos push action eosio.token transfer '{"from":"bob", "to":"gfairdicegam", "quantity":"95.6542 EOS", "memo":"tzl"}' -p bob@active
+root - DEBUG - cleos push action gfairdicegam transfer '{"from": "gfairdicegam", "to": "gfairdicegam", "quantity": "0.6270 EOS", "memo": "gawZQBCv"}' -p gfairdicegam@active
+root - DEBUG - cleos push action eosio.token create '["eosio","20000000000000.0000 EOS"]' -p eosio.token@active
+root - DEBUG - cleos push action eosio.token issue '["eosio", "20000000000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action fake.token create '["fakeosio","200000000000000.0000 EOS"]' -p fake.token@active
+root - DEBUG - cleos push action fake.token issue '["fakeosio", "20000000000000.0000 EOS",""]' -p fakeosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","fakeosio","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","testeosfrom","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","bob","1000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","pokpokpokpok","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action atkforg regist '["gfairdicegam"]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","gfairdicegam","1000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '{"from": "bob", "to": "bob", "quantity": "0.6270 EOS", "memo": "gawZQBCv"}' -p bob@active
+root - DEBUG - cleos push action eosio.token create '["eosio","20000000000000.0000 EOS"]' -p eosio.token@active
+root - DEBUG - cleos push action eosio.token issue '["eosio", "20000000000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action fake.token create '["fakeosio","200000000000000.0000 EOS"]' -p fake.token@active
+root - DEBUG - cleos push action fake.token issue '["fakeosio", "20000000000000.0000 EOS",""]' -p fakeosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","fakeosio","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","testeosfrom","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","bob","1000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","pokpokpokpok","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action atkforg regist '["gfairdicegam"]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","gfairdicegam","1000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action gfairdicegam receipt '{"bet": {}}' -p gfairdicegam@active
+root - DEBUG - cleos push action gfairdicegam reveal '{"id": 201, "seed": "0000000000000000000000000000000000000000000000000000000000000000"}' -p gfairdicegam@active
+root - DEBUG - cleos push action eosio.token transfer '{"from":"bob", "to":"gfairdicegam", "quantity":"57.3541 EOS", "memo":"GIJyrKE"}' -p bob@active
+root - DEBUG - cleos push action gfairdicegam transfer '{"from": "gfairdicegam", "to": "gfairdicegam", "quantity": "86.0159 EOS", "memo": "namvIVy"}' -p gfairdicegam@active
+root - DEBUG - cleos push action eosio.token create '["eosio","20000000000000.0000 EOS"]' -p eosio.token@active
+root - DEBUG - cleos push action eosio.token issue '["eosio", "20000000000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action fake.token create '["fakeosio","200000000000000.0000 EOS"]' -p fake.token@active
+root - DEBUG - cleos push action fake.token issue '["fakeosio", "20000000000000.0000 EOS",""]' -p fakeosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","fakeosio","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","testeosfrom","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","bob","1000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","pokpokpokpok","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action atkforg regist '["gfairdicegam"]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","gfairdicegam","1000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '{"from": "bob", "to": "bob", "quantity": "86.0159 EOS", "memo": "namvIVy"}' -p bob@active
+root - DEBUG - cleos push action eosio.token create '["eosio","20000000000000.0000 EOS"]' -p eosio.token@active
+root - DEBUG - cleos push action eosio.token issue '["eosio", "20000000000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action fake.token create '["fakeosio","200000000000000.0000 EOS"]' -p fake.token@active
+root - DEBUG - cleos push action fake.token issue '["fakeosio", "20000000000000.0000 EOS",""]' -p fakeosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","fakeosio","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","testeosfrom","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","bob","1000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","pokpokpokpok","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action atkforg regist '["gfairdicegam"]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","gfairdicegam","1000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action gfairdicegam receipt '{"bet": {}}' -p gfairdicegam@active
+root - DEBUG - cleos push action gfairdicegam reveal '{"id": 249, "seed": "0000000000000000000000000000000000000000000000000000000000000000"}' -p gfairdicegam@active
+root - DEBUG - cleos push action eosio.token transfer '{"from":"bob", "to":"gfairdicegam", "quantity":"10.2056 EOS", "memo":"vhjCXQKF"}' -p bob@active
+root - DEBUG - cleos push action gfairdicegam transfer '{"from": "gfairdicegam", "to": "gfairdicegam", "quantity": "49.6250 EOS", "memo": "OhgHoqb"}' -p gfairdicegam@active
+root - DEBUG - cleos push action eosio.token create '["eosio","20000000000000.0000 EOS"]' -p eosio.token@active
+root - DEBUG - cleos push action eosio.token issue '["eosio", "20000000000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action fake.token create '["fakeosio","200000000000000.0000 EOS"]' -p fake.token@active
+root - DEBUG - cleos push action fake.token issue '["fakeosio", "20000000000000.0000 EOS",""]' -p fakeosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","fakeosio","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","testeosfrom","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","bob","1000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","pokpokpokpok","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action atkforg regist '["gfairdicegam"]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","gfairdicegam","1000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '{"from": "bob", "to": "bob", "quantity": "49.6250 EOS", "memo": "OhgHoqb"}' -p bob@active
+root - DEBUG - cleos push action eosio.token create '["eosio","20000000000000.0000 EOS"]' -p eosio.token@active
+root - DEBUG - cleos push action eosio.token issue '["eosio", "20000000000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action fake.token create '["fakeosio","200000000000000.0000 EOS"]' -p fake.token@active
+root - DEBUG - cleos push action fake.token issue '["fakeosio", "20000000000000.0000 EOS",""]' -p fakeosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","fakeosio","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","testeosfrom","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","bob","1000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","pokpokpokpok","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action atkforg regist '["gfairdicegam"]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","gfairdicegam","1000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action gfairdicegam receipt '{"bet": {}}' -p gfairdicegam@active
+root - DEBUG - cleos push action gfairdicegam reveal '{"id": 172, "seed": "0000000000000000000000000000000000000000000000000000000000000000"}' -p gfairdicegam@active
+root - DEBUG - cleos push action eosio.token transfer '{"from":"bob", "to":"gfairdicegam", "quantity":"21.2418 EOS", "memo":"fYU"}' -p bob@active
+root - DEBUG - cleos push action gfairdicegam transfer '{"from": "gfairdicegam", "to": "gfairdicegam", "quantity": "62.3021 EOS", "memo": "KnorEUPp"}' -p gfairdicegam@active
+root - DEBUG - cleos push action eosio.token create '["eosio","20000000000000.0000 EOS"]' -p eosio.token@active
+root - DEBUG - cleos push action eosio.token issue '["eosio", "20000000000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action fake.token create '["fakeosio","200000000000000.0000 EOS"]' -p fake.token@active
+root - DEBUG - cleos push action fake.token issue '["fakeosio", "20000000000000.0000 EOS",""]' -p fakeosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","fakeosio","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","testeosfrom","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","bob","1000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","pokpokpokpok","10000000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action atkforg regist '["gfairdicegam"]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '["eosio","gfairdicegam","1000.0000 EOS",""]' -p eosio@active
+root - DEBUG - cleos push action eosio.token transfer '{"from": "bob", "to": "bob", "quantity": "62.3021 EOS", "memo": "KnorEUPp"}' -p bob@active
