@@ -1,4 +1,4 @@
-# WACANA: : A Concolic Analyzer for Detecting On-chain Data Vulnerabilities in WASM Smart Contracts
+# WACANA: A Concolic Analyzer for Detecting On-chain Data Vulnerabilities in WASM Smart Contracts
 
 # Prerequisites
 
