@@ -8,7 +8,7 @@ pip install docker
 
 # User Guide
 
-1. Download the image from xxx
+1. Download the image from [this link](https://wacana-data-1329356540.cos.na-ashburn.myqcloud.com/wacana-image.tar)
 2. Run multi_run.py
 
 The following parameters can be configured when running:
@@ -27,4 +27,4 @@ python multi_run.py --data=./datasets/example --script=/path/to/wacana --pnum=2 
 
 # Benchmark
 
-please refer to xxx
+please refer to [this link](https://wacana-data-1329356540.cos.na-ashburn.myqcloud.com/datasets.tar.gz)
