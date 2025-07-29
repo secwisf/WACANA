@@ -27,4 +27,4 @@ python multi_run.py --data=./datasets/example --script=/path/to/wacana --pnum=2 
 
 # Benchmark
 
-please refer to [this link](https://wacana-data-1329356540.cos.na-ashburn.myqcloud.com/datasets.tar.gz)
+please refer to WACANA_dataset folder
