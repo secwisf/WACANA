@@ -1,0 +1,105 @@
+digraph "wasm_call_graph_octopus.gv" {
+	rankdir=LR
+	subgraph global {
+		abort [fillcolor=turquoise shape=box style=filled]
+		abort [fillcolor=turquoise shape=box style=filled]
+		action_data_size [fillcolor=turquoise shape=box style=filled]
+		action_data_size [fillcolor=turquoise shape=box style=filled]
+		current_time [fillcolor=turquoise shape=box style=filled]
+		current_time [fillcolor=turquoise shape=box style=filled]
+		eosio_assert [fillcolor=turquoise shape=box style=filled]
+		eosio_assert [fillcolor=turquoise shape=box style=filled]
+		memcpy [fillcolor=turquoise shape=box style=filled]
+		memcpy [fillcolor=turquoise shape=box style=filled]
+		printn [fillcolor=turquoise shape=box style=filled]
+		printn [fillcolor=turquoise shape=box style=filled]
+		prints [fillcolor=turquoise shape=box style=filled]
+		prints [fillcolor=turquoise shape=box style=filled]
+		read_action_data [fillcolor=turquoise shape=box style=filled]
+		read_action_data [fillcolor=turquoise shape=box style=filled]
+		require_auth2 [fillcolor=turquoise shape=box style=filled]
+		require_auth2 [fillcolor=turquoise shape=box style=filled]
+		_ZeqRK11checksum256S1_ [fillcolor=grey shape=box style=filled]
+		_ZeqRK11checksum256S1_ [fillcolor=grey shape=box style=filled]
+		_ZeqRK11checksum160S1_ [fillcolor=grey shape=box style=filled]
+		_ZeqRK11checksum160S1_ [fillcolor=grey shape=box style=filled]
+		_ZneRK11checksum160S1_ [fillcolor=grey shape=box style=filled]
+		_ZneRK11checksum160S1_ [fillcolor=grey shape=box style=filled]
+		now [fillcolor=grey shape=box style=filled]
+		now [fillcolor=grey shape=box style=filled]
+		_ZN5eosio12require_authERKNS_16permission_levelE [fillcolor=grey shape=box style=filled]
+		_ZN5eosio12require_authERKNS_16permission_levelE [fillcolor=grey shape=box style=filled]
+		apply [fillcolor=grey shape=box style=filled]
+		apply [fillcolor=grey shape=box style=filled]
+		"$func15" [fillcolor=white shape=hexagon style=filled]
+		"$func16" [fillcolor=white shape=ellipse style=filled]
+		"$func17" [fillcolor=white shape=ellipse style=filled]
+		"$func18" [fillcolor=white shape=ellipse style=dashed]
+		"$func19" [fillcolor=white shape=ellipse style=filled]
+		"$func20" [fillcolor=white shape=ellipse style=filled]
+		"$func21" [fillcolor=white shape=ellipse style=filled]
+		malloc [fillcolor=grey shape=box style=filled]
+		malloc [fillcolor=grey shape=box style=filled]
+		"$func23" [fillcolor=white shape=ellipse style=filled]
+		"$func24" [fillcolor=white shape=ellipse style=filled]
+		free [fillcolor=grey shape=box style=filled]
+		free [fillcolor=grey shape=box style=filled]
+		"$func26" [fillcolor=white shape=ellipse style=dashed]
+		"$func27" [fillcolor=white shape=ellipse style=filled]
+		"$func28" [fillcolor=white shape=ellipse style=filled]
+		"$func29" [fillcolor=white shape=ellipse style=filled]
+		"$func30" [fillcolor=white shape=ellipse style=filled]
+		"$func31" [fillcolor=white shape=ellipse style=filled]
+		memcmp [fillcolor=grey shape=box style=filled]
+		memcmp [fillcolor=grey shape=box style=filled]
+		"$func33" [fillcolor=white shape=hexagon style=filled]
+		"$func23" -> "$func24"
+		"$func19" -> "$func27"
+		"$func15" -> prints [label=2]
+		"$func16" -> action_data_size
+		"$func16" -> read_action_data
+		"$func29" -> abort
+		_ZN5eosio12require_authERKNS_16permission_levelE -> require_auth2
+		"$func29" -> "$func26"
+		"$func17" -> "$func19"
+		"$func16" -> malloc
+		"$func16" -> eosio_assert [label=2]
+		apply -> eosio_assert
+		"$func19" -> "$func26"
+		"$func28" -> abort
+		"$func31" -> "$func26"
+		"$func20" -> eosio_assert [label=2]
+		"$func16" -> free
+		"$func31" -> abort
+		"$func19" -> "$func20"
+		"$func19" -> "$func28"
+		apply -> "$func16"
+		"$func21" -> "$func30"
+		"$func29" -> "$func27"
+		"$func18" -> "$func31" [label=2]
+		"$func20" -> memcpy
+		"$func21" -> memcpy
+		"$func17" -> eosio_assert [label=4]
+		"$func16" -> "$func27"
+		"$func26" -> malloc [label=2]
+		"$func31" -> memcpy
+		_ZneRK11checksum160S1_ -> memcmp
+		"$func27" -> free
+		_ZeqRK11checksum160S1_ -> memcmp
+		"$func23" -> eosio_assert
+		"$func16" -> "$func17"
+		_ZeqRK11checksum256S1_ -> memcmp
+		malloc -> "$func23"
+		"$func29" -> memcpy
+		"$func16" -> "$func18"
+		"$func18" -> "$func27" [label=2]
+		"$func20" -> "$func21"
+		"$func21" -> "$func27"
+		"$func30" -> abort
+		"$func21" -> "$func26"
+		now -> current_time
+		"$func15" -> printn [label=2]
+		"$func17" -> memcpy [label=4]
+		"$func19" -> "$func29" [label=2]
+	}
+}
