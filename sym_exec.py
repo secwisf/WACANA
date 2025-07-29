@@ -306,7 +306,11 @@ def fake_hostfunc_call(
     valn = [stack.pop() for _ in f.functype.args][::-1]
     val0 = []
     action=[]
-    sensitive_operation=["db_update_i64","db_store_i64","db_idx64_update","db_idx64_store","db_idx64_remove","db_remove_i64","send_inline","require_recipient"]
+    #sensitive_operation=["db_update_i64","db_store_i64","db_idx64_update","db_idx64_store","db_idx64_remove","db_remove_i64","send_inline","require_recipient","send_context_free_inline"]
+    sensitive_operation = ['send_inline']#, 'send_deferred', 'send_context_free_inline', 'cancel_deferred'] 
+                # 'db_find_i64', 'db_lowerbound_i64', 'db_get_i64',
+                # 'db_update_i64', 'db_store_i64', 'db_remove_i64', 'db_idx64_store', 'db_idx64_update', 'db_idx64_remove', 'db_idx128_update',
+                # 'db_idx128_store', 'db_idx128_remove', 'db_idx256_remove', 'db_idx256_store']
     send_operation=["send_inline","send_context_free_inline"]
     authenticate_operation=["require_auth","require_auth2","has_auth"]
     state=[GlobalState()]
@@ -316,7 +320,7 @@ def fake_hostfunc_call(
             if not global_vars.call_authenticate:
                 global_vars.missing_permissions=True
                 print("missing permission checking vulneralbility find")
-            if global_vars.get_block_state:
+            if global_vars.get_block_state or global_vars.call_block_state :
                 global_vars.block_information_depend=True
                 print("block info depend vulneralbility find")
             if global_vars.overflow:
@@ -328,9 +332,8 @@ def fake_hostfunc_call(
             global_vars.call_authenticate=True
         if f.funcname in send_operation:
             action.append("Send()")
-            # if not global_vars.call_block_state:
-            #认为只要是send inline就是漏洞好伐
-            global_vars.rollback=True
+            if not global_vars.call_block_state:
+                global_vars.rollback=True
             print("rollback vulneralbility find")
         # if "db" in f.funcname and ("find" in f.funcname or "get" in f.funcname):
         if f.funcname in ["tapos_block_num","tapos_block_prefix"]:
@@ -339,7 +342,7 @@ def fake_hostfunc_call(
             global_vars.get_block_state=True
             if global_vars.sensitive_op:
                 global_vars.block_information_depend=True
-                print("block info depend vulneralbility find")
+            print("block info depend vulneralbility find")
         logger.infoln(f'call eth.hostfunc : {f.funcname} {address}')
     if f.funcname in emulator.realize_list_wasm:#如果库函数已经被实现了
         # [TODO] Pass different parameters according to the situation
@@ -366,13 +369,17 @@ def fake_hostfunc_call(
         else:
             return [None],state,action
     if f.functype.rets[0] == bin_format.i32:
-        r = 0
+        r = randint(0,1)
+        #0
     elif f.functype.rets[0] == bin_format.i64:
-        r = 0
+        r =randint(0,1)
+        #0
     elif f.functype.rets[0] == bin_format.f32:
-        r= 0.5
+        r= uniform(0,1)
+        #0.5
     else:
-        r = 0.5
+        r = uniform(0,1)
+        #0.5
     return [Value(f.functype.rets[0], r)],state,action
 
 # @profile
@@ -566,13 +573,21 @@ def fake_wasmfunc_call(
         return []
     #return [Value(f.functype.rets[0], utils.gen_symbolic_value(f.functype.rets[0],f"return_val_{(func_cnt-1)}"))]
     if f.functype.rets[0] == bin_format.i32:
-        r=100
+        r = randint(0, 1927)
+        #r= utils.gen_symbolic_value(bin_format.i32,f"var")
+       # r=100
     elif f.functype.rets[0] == bin_format.i64:
-        r=100
+        r = randint(0, 1927)
+        #r= utils.gen_symbolic_value(bin_format.i64,f"var")
+        #r=100
     elif f.functype.rets[0] == bin_format.f32:
-        r=0.5
+        r = uniform(0, 1)
+        #r= utils.gen_symbolic_value(bin_format.f32,f"var")
+        #r=0.5
     else:
-        r=0.5
+        r = uniform(0, 1)
+        #r= utils.gen_symbolic_value(bin_format.f64,f"var")
+        #r=0.5
     return [Value(f.functype.rets[0], r)]
 
 
@@ -602,10 +617,14 @@ def call(
         ib = stack.data[-1 - i]
         if ia != ib.valtype:
             raise Exception('Signature mismatch in call!')
+
     init_variables(init_constraints)  # add initial constraints
     if isinstance(f, WasmFunc):
         return wasmfunc_call(module, address, store, stack)
     if isinstance(f, HostFunc):
+        if f.funcname == "send_inline":
+            global_vars.rollback=True
+            print("rollback vulneralbility find")
         return hostfunc_call(module, address, store, stack)
 
 # @profile
@@ -636,6 +655,7 @@ def fake_call(
         ib = stack.data[-1 - i]
         if isinstance(ib,Label) or ia != ib.valtype:
             raise Exception('Signature mismatch in call!')
+
     if isinstance(f, WasmFunc):
         # if global_vars.detection_mode:
         #     return fake_wasmfunc_call(module, address, store, stack)
@@ -643,6 +663,9 @@ def fake_call(
         # print("call func$",str(address),r)
         return r
     if isinstance(f, HostFunc):
+        if f.funcname == "send_inline":
+            global_vars.rollback=True
+            print("rollback vulneralbility find")
         return fake_hostfunc_call(module, address, store, stack, m)
 
 # def set_stack_and_global()
@@ -789,8 +812,14 @@ def transfer_signature_check(f):
 def is_blockchain_state(var):
     blockchain_state_operation=["current_time","tapos_block_prefix","tapos_block_num"]
     for c in blockchain_state_operation:
-        if c in var.name:
+        # print("blockvar")
+        # print(var)
+        try:
+            if c in var.name:
+                return True
+        except:
             return True
+
     return False
 
 # @profile
@@ -2729,6 +2758,7 @@ def exec_expr(
                     if is_blockchain_state(a) or is_blockchain_state(b):
                         action.append("Block_State()")
                         global_vars.call_block_state=True
+                        #print("block info depend vulneralbility find")
                     solver.push()
                     solver.add(a < 0)
                     find_symbolic_in_solver(solver)
@@ -2750,6 +2780,7 @@ def exec_expr(
                     if is_blockchain_state(a) or is_blockchain_state(b):
                         action.append("Block_State()")
                         global_vars.call_block_state=True
+                        #print("block info depend vulneralbility find")
                 #primise.append(f"SubstVar32(compstackX{func_name}X{stack.frame_len},compstackX{func_name}X{stack.frame_len} REM compstackX{func_name}X{stack.frame_len+1})")
                     #TODO: 需要添加REM操作,mkBvurem
                 object_c = Value.from_i32(computed)

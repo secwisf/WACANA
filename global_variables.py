@@ -80,7 +80,7 @@ class GlobalVariables:
         # loop depth limit
         self.LOOP_DEPTH_LIMIT = 500#路径中常亮分支指令个数
         # self.LOOP_DEPTH_LIMIT = 100#路径中常亮分支指令个数
-        self.BRANCH_DEPTH_LIMIT = 5#路径中符号量分支指令个数
+        self.BRANCH_DEPTH_LIMIT = 10#路径中符号量分支指令个数
         # self.BRANCH_DEPTH_LIMIT = 10#路径中符号量分支指令个数
         self.CALL_DEPTH_LIMIT = 5
 

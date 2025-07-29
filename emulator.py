@@ -2155,3 +2155,4 @@ realize_list_host = ['callDataCopy','storageStore','storageLoad','getCaller',
 #                         '$bswap64', '$keccak256', '$eq', '$mul', '$div', '$calldatacopy']
 # realize_list_wasm=['db_find_i64','db_get_i64','db_next_i64','db_previous_i64','db_lowerbound_i64','db_upperbound_i64','db_end_i64','db_remove_i64','db_update_i64','current_receiver','eosio_assert','action_data_size','current_receiver','read_action_data','tapos_block_num','current_time','is_account']
 realize_list_wasm=['db_find_i64','db_get_i64','db_next_i64','db_previous_i64','db_lowerbound_i64','db_upperbound_i64','db_end_i64','current_receiver','eosio_assert','action_data_size','current_receiver','read_action_data','tapos_block_num','current_time','is_account','has_auth']
+#'db_find_i64','db_get_i64','db_next_i64','db_previous_i64','db_lowerbound_i64','db_upperbound_i64','db_end_i64',

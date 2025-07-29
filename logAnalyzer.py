@@ -251,6 +251,16 @@ class FeedbackFactory(object):
                 if global_vars.db_remove_id!=0 and log[1]=='call' and len(log[2])>2 and log[2][2]==global_vars.db_remove_id:
                     log[1]='remove'
                     db_store_logs.append(log)
+                if log[1] == 'call':
+                    # print("log:------")
+                    # print(log)
+                    if len(log[2]) >= 3 and log[2][2] < len(self.importsFunc) and "send_inline" in self.importsFunc[log[2][2]]:
+                        print("rollback vulneralbility find")
+                    elif len(log[2]) >= 3 and log[2][2] < len(self.importsFunc) and "tapos_block_num" in self.importsFunc[log[2][2]]:
+                        print("block info depend vulneralbility find")
+                    elif len(log[2]) >= 3 and log[2][2] < len(self.importsFunc) and "tapos_block_prefix" in self.importsFunc[log[2][2]]:
+                        print("block info depend vulneralbility find")
+
                 #update的情况不用考虑，反正我的数据都是从链上拿的，update与否不重要
                 # if global_vars.db_update_id!=0 and log[1]=='call' and len(log[2])>2 and log[2][2]==global_vars.db_update_id:
                 #     log[1]='update'

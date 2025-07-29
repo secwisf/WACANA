@@ -594,14 +594,16 @@ def symbolic_loop(vm, name, data_dir):
     print("begin")
     print(time.time()*1000)
     while True:
-        if count==10:
+        if count==1:
+            #print("times---------")
             break
         best_tx=get_best_tx(vm,name,action_to_func_id,action_to_args,store_logs,func_id_to_action)
         if best_tx==None:
             #不能继续扩大覆盖率了
+            #print("best---------")
             break
         print("best tx:",best_tx)
-        exec_on_chain(feedbackFactory,*best_tx)
+        #exec_on_chain(feedbackFactory,*best_tx)
         count+=1
 
 all_pc_cnts=set()
@@ -621,9 +623,9 @@ def get_best_tx(vm,name,action_to_func_id,action_to_args,store_logs,func_id_to_a
         # if action_name!='createbond':
             # continue
         vm.reinit()
-        print("test",action_name)
+        #print("test",action_name)
         func_id=action_to_func_id[action_name]
-        print("func_id",func_id)
+        #print("func_id",func_id)
         action_func = vm.store.funcs[vm.module_instance.funcaddrs[func_id]]
         params = utils.gen_symbolic_args(action_func)
         func_id_to_params[func_id]=params
@@ -637,8 +639,8 @@ def get_best_tx(vm,name,action_to_func_id,action_to_args,store_logs,func_id_to_a
         # print(symbolic_memory.load(params[0],16))
         test_argument_str,test_argument_type,test_argument_name=action_to_args[action_name]
         test_argument_dict=json.loads(test_argument_str)
-        print("test_argument_type",test_argument_type)
-        print("len(params)",len(params))
+        #print("test_argument_type",test_argument_type)
+        #print("len(params)",len(params))
         try:
             for i,ta in enumerate(test_argument_type):
                 if ta=='string' or ta=="struct" or 'checksum' in ta or 'vector' in ta or '[' in 'ta' or ']' in ta or ta=='account_name' or ta=='asset':
@@ -677,6 +679,7 @@ def get_best_tx(vm,name,action_to_func_id,action_to_args,store_logs,func_id_to_a
         gain_to_gstates[gain].append(i)
     print("pc trace length",len(global_vars.pc_sets))
     print("states grades",gain_to_gstates.keys())
+    #g = random.choice(list(gain_to_gstates.keys()))
     for g in sorted(gain_to_gstates.keys(),key=lambda k:-k):
         if g<=0:
             print("no positive grades")
@@ -719,11 +722,11 @@ def get_best_tx(vm,name,action_to_func_id,action_to_args,store_logs,func_id_to_a
                     else:
                         # test_argument_dict[test_argument_name[i]]=utils.get_concrete_int(val)
                         pass
+                
                     
-                        
-                # print(p.n)
-            print(test_argument_dict)
-            return func_id_to_action[func_id],json.dumps(test_argument_dict),test_argument_type
+            # print(p.n)
+        print(test_argument_dict)
+        return func_id_to_action[func_id],json.dumps(test_argument_dict),test_argument_type
             # return [str(model.eval(p.n)) if utils.is_symbolic(p.n) else str(p.n) for p in params]
     return None
 
@@ -745,9 +748,9 @@ def get_rnd_tx(vm,name,action_to_func_id,action_to_args,store_logs,func_id_to_ac
         # if action_name!='createbond':
             # continue
         vm.reinit()
-        print("test",action_name)
+        #print("test",action_name)
         func_id=action_to_func_id[action_name]
-        print("func_id",func_id)
+        #print("func_id",func_id)
         action_func = vm.store.funcs[vm.module_instance.funcaddrs[func_id]]
         params = utils.gen_symbolic_args(action_func)
         func_id_to_params[func_id]=params
@@ -761,8 +764,8 @@ def get_rnd_tx(vm,name,action_to_func_id,action_to_args,store_logs,func_id_to_ac
         # print(symbolic_memory.load(params[0],16))
         test_argument_str,test_argument_type,test_argument_name=action_to_args[action_name]
         test_argument_dict=json.loads(test_argument_str)
-        print("test_argument_type",test_argument_type)
-        print("len(params)",len(params))
+        #print("test_argument_type",test_argument_type)
+        #print("len(params)",len(params))
         try:
             for i,ta in enumerate(test_argument_type):
                 if ta=='string' or ta=="struct" or 'checksum' in ta or 'vector' in ta or '[' in 'ta' or ']' in ta or ta=='account_name' or ta=='asset':

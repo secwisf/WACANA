@@ -28,9 +28,13 @@ def worker(data_dir,name,id,script_dir,timeout):
         container_output=e.container.logs()
         
     end_time=time.time()
-    with open(f"./result/{name}.txt","wb") as f:
+
+    resdir = data_dir.replace("/","_").strip('.')
+    if not os.path.exists(f"{resdir}"):
+        os.system(f"mkdir {resdir}")
+    with open(f"./{resdir}/{name}.txt","wb") as f:
         f.write(container_output)
-    with open(f"./result/{name}_time.txt","w") as f:
+    with open(f"./{resdir}/{name}_time.txt","w") as f:
         f.write(str(end_time-start_time))
     
 def main(dirs,data_dir,script_dir,pnum,timeout):
@@ -46,7 +50,7 @@ def main(dirs,data_dir,script_dir,pnum,timeout):
 if __name__ == "__main__":
     data_dir = "./datasets/example"
     script_dir = ""
-    pnum = 10
+    pnum = 5
     timeout = 3600
     args = sys.argv
     print("================setting=========================")
@@ -65,5 +69,6 @@ if __name__ == "__main__":
             print("Timeout: the timeout is set to %d"%timeout)
     print("================begin analyzing=========================")
     dirs=os.listdir(data_dir)
+    #dirs = [d for d in dirs if 'rtokenlock' in d]
     main(dirs,data_dir,script_dir,pnum,timeout)
 
