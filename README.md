@@ -2,14 +2,12 @@
 
 # Prerequisites
 
-Install the Docker Python package:
+Install the prerequisites of [WANA](https://github.com/gongbell/WANA) and [WASAI](https://github.com/WASAIRepo/WASAI)
 
-pip install docker
 
 # User Guide
 
-1. Download the image from [this link](https://wacana-data-1329356540.cos.na-ashburn.myqcloud.com/wacana-image.tar)
-2. Run multi_run.py
+1. Run multi_run.py
 
 The following parameters can be configured when running:
 | Parameter | Description | Default Value |
