@@ -7,7 +7,7 @@ Install the prerequisites of [WANA](https://github.com/gongbell/WANA) and [WASAI
 
 # User Guide
 
-1. Run multi_run.py
+Run multi_run.py
 
 The following parameters can be configured when running:
 | Parameter | Description | Default Value |
